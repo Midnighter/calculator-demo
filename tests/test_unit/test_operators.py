@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-"""Define the calculator operations."""
+"""Test the calculator operations."""
 
 
 import hypothesis.strategies as st
@@ -25,16 +25,19 @@ from demo import operators
 
 @pytest.mark.parametrize("a, b, expected", [(2, 2, 4)])
 def test_add(a, b, expected):
+    """Test known examples of addition."""
     assert operators.add(a, b) == expected
 
 
 @pytest.mark.parametrize("a, b, expected", [(4, 2, 2)])
 def test_subtract(a, b, expected):
+    """Test known examples of subtraction."""
     assert operators.subtract(a, b) == expected
 
 
 @pytest.mark.parametrize("a, b, expected", [(2, 2, 4)])
 def test_multiply(a, b, expected):
+    """Test known examples of multiplication."""
     assert operators.multiply(a, b) == expected
 
 
@@ -49,17 +52,20 @@ def test_multiply(a, b, expected):
     ],
 )
 def test_divide(a, b, expected):
+    """Test known examples of division."""
     assert operators.divide(a, b) == expected
 
 
 @given(a=st.integers(), b=st.integers())
 def test_divide_int(a, b):
+    """Test division on a wide integer domain."""
     assume(b != 0)
     operators.divide(a, b)
 
 
 @given(a=st.floats(), b=st.floats())
 def test_divide_float(a, b):
+    """Test division on a wide float domain."""
     assume(b != 0.0)
     operators.divide(a, b)
 
@@ -67,5 +73,6 @@ def test_divide_float(a, b):
 @given(a=st.floats(), b=st.integers())
 @example(a=1.0, b=1)
 def test_divide_by_int(a, b):
+    """Test that division by an integer maintains a float value."""
     assume(b != 0)
     assert isinstance(operators.divide(a, b), float)
