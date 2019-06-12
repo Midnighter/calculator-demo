@@ -18,7 +18,7 @@
 
 import hypothesis.strategies as st
 import pytest
-from hypothesis import given, example, assume
+from hypothesis import assume, example, given
 
 from demo import operators
 
