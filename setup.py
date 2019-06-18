@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 # Copyright (c) 2018, Moritz E.
@@ -19,8 +18,6 @@
 
 """Setup the dependency information package."""
 
-
-from __future__ import absolute_import
 
 from setuptools import setup
 
