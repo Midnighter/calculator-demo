@@ -21,3 +21,7 @@ __email__ = "midnighter@posteo.net"
 
 
 from .operators import add, subtract, multiply, divide
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions

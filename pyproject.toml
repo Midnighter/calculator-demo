@@ -10,5 +10,6 @@ python-version = ['py36']
 exclude = '''
 (
     __init__.py
+    | _version.py
 )
 '''
